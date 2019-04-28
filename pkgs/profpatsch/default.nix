@@ -67,7 +67,7 @@ in rec {
   sfttime = callPackage ./sfttime {};
   show-qr-code = callPackage ./show-qr-code {};
   warpspeed = callPackage ./warpspeed {
-    inherit (pkgs.haskellPackages) ghcWithPackages;
+    inherit (pkgs.naskellPackages) ghcWithPackages;
   };
 
   inherit (callPackage ./utils-hs {})
@@ -129,4 +129,7 @@ in rec {
     inherit symlink;
   };
 
+  dhall-experiment = pkgs.callPackage ./dhall-experiment {
+    inherit (haskellPackages) dhall-nix;
+  };
 }
